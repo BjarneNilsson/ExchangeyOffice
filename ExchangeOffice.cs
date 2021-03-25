@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExchangeyOffice
+namespace ExOffice
 {
     class ExchangeOffice
     
     {
-        private List<CurrencySymbol> _Currencies;
+        private List<CurrencySymbol> _Currencies ;
+        public ExchangeOffice()
+        {
+            _Currencies = new List<CurrencySymbol>();
+        }
 
         //updates acurrensy if at exists (returns true#, if id does not itr returrns false. 
         public bool UpdateCurrency(String Symbol, Decimal BuyRate, decimal SellRate)
@@ -32,6 +36,19 @@ namespace ExchangeyOffice
             string _s = Symbol.ToUpper();
             if (UpdateCurrency(_s, BuyRate, SellRate)) { }
             else { _Currencies.Add(new CurrencySymbol(_s, BuyRate, SellRate)); }
+        }
+        
+        public CurrencySymbol GetCurrency(String Symbol)
+        {
+           
+            foreach( CurrencySymbol s in _Currencies)
+            {
+                if (s.Symbol ==Symbol.ToUpper())
+                {
+                    return s;
+                }
+            }
+            return new CurrencySymbol(null, 0, 0);
         }
     }
 }

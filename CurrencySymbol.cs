@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExchangeyOffice
+
+namespace ExOffice
 {
     class CurrencySymbol
     {
+#nullable enable
         private Decimal _SellRate,_BuyRate;
         private String _Symbol;
-        public CurrencySymbol(String Sympol, Decimal BuyRate,Decimal SellRate)
+        public CurrencySymbol(String Symbol, Decimal BuyRate,Decimal SellRate)
         {
-            _Symbol = Sympol.ToUpper();
+            _Symbol = Symbol.ToUpper();
             _BuyRate = BuyRate;
             _SellRate = SellRate;
         }
